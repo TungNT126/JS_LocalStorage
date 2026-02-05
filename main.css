@@ -1,0 +1,23 @@
+.odd-row {
+    background-color: #f2f2f2;
+}
+
+.form-group {
+    display: flex;
+    margin-bottom: 16px;
+    flex-direction: column;
+  }
+
+.form-group.invalid .form-control {
+    border-color: #f33a58;
+}
+  
+.form-group.invalid .form-message {
+    color: #f33a58;
+}
+
+#reset-data {
+    display: block;
+    position: relative;;
+    float: right;
+}

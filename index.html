@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <h3>List of users</h3>
+    <button type="reset" id="reset-data">Reset Data</button>
+    <h4 class="total-user"></h4>
+
+    <label>Search users:</label>
+    <input id="search-input" type="search" placeholder="Search value...">
+
+    <table class="user-table" border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody class="user-table-body"></tbody>
+    </table>
+
+    <form class="form-user">
+        <div class="form-group">
+            <label for="name" class="name">Name</label>
+            <input id="name" class="form-control" type="text" name="name" placeholder="Insert name">
+        </div>
+        <div class="form-group">
+            <label for="email" class="email">Email</label>
+            <input id="email" class="form-control" type="text" name="email" placeholder="Insert email">
+        </div>
+        <div class="form-group">
+            <label for="phone" class="phone">Phone</label>
+            <input id="phone" class="form-control" type="text" name="phone" placeholder="Insert phone number">
+        </div>
+
+        <button id="submit-btn" type="submit">Thêm nhân viên</button>
+    </form>
+
+    <script src="./app.js"></script>
+</body>
+</html>
