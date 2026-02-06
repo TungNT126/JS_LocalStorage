@@ -1,13 +1,6 @@
 var userTableBody = document.querySelector(".user-table-body");
 var userUpdateId = null;
 
-/**
- *  - Không xem dc thông tin của user mới tạo 
- *  - Lỗi id khi tạo mới user
- *  - 
- * 
- */
-
 function getUsers() {
     return JSON.parse(localStorage.getItem("users")) || [];
 }
@@ -221,59 +214,59 @@ function resetDataApi() {
 
 /* ===================================================================================================== */
 
-// function createAndUpdateUser() {
-//     document.querySelector(".form-user").addEventListener("submit", async function(e) {
-//         e.preventDefault();
+function createAndUpdateUser() {
+    document.querySelector(".form-user").addEventListener("submit", async function(e) {
+        e.preventDefault();
 
-//         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
-//         const phoneRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
+        const phoneRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
 
-//         const name = document.getElementById("name").value.trim();
-//         const email = document.getElementById("email").value.trim();
-//         const phone = document.getElementById("phone").value.trim();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
 
-//         let users = getUsers();
+        let users = getUsers();
 
-//         if (!name || !email) {
-//             return alert("Vui lòng nhập đầy đủ dữ liệu!");
-//         }
-//         // if (!emailRegex.test(email)) {
-//         //     return alert("Sai dinh dang email")
-//         // }
-//         if (!phoneRegex.test(phone)) {
-//             return alert("Sai dinh dang sdt")
-//         } 
+        if (!name || !email) {
+            return alert("Vui lòng nhập đầy đủ dữ liệu!");
+        }
+        // if (!emailRegex.test(email)) {
+        //     return alert("Sai dinh dang email")
+        // }
+        if (!phoneRegex.test(phone)) {
+            return alert("Sai dinh dang sdt")
+        } 
 
-//         // Update user
-//         if (userUpdateId !== null) {
-//             users = users.map((user) => user.id === userUpdateId ? { ...user, name, email, phone } : user);
+        // Update user
+        if (userUpdateId !== null) {
+            users = users.map((user) => user.id === userUpdateId ? { ...user, name, email, phone } : user);
 
-//             userUpdateId = null;
-//             document.getElementById("submit-btn").textContent = "Thêm nhân viên";
-//         }
-//         // Create user
-//         else {
-//             let isDuplicate = users.some(user => user.email === email);
-//             if (isDuplicate) {
-//                 alert("Email đã tồn tại!");
-//             }
+            userUpdateId = null;
+            document.getElementById("submit-btn").textContent = "Thêm nhân viên";
+        }
+        // Create user
+        else {
+            let isDuplicate = users.some(user => user.email === email);
+            if (isDuplicate) {
+                alert("Email đã tồn tại!");
+            }
     
-//             if(!isDuplicate) {
-//                 const newUser ={
-//                     id: users.length ? users[users.length - 1].id + 1 : 1,
-//                     name,
-//                     email,
-//                     phone
+            if(!isDuplicate) {
+                const newUser ={
+                    id: users.length ? users[users.length - 1].id + 1 : 1,
+                    name,
+                    email,
+                    phone
 
-//                 }              
-//                 users.push(newUser);
-//             }
-//         }
-//         saveUsers(users)
-//         readData(users);
-//         this.reset();
-//     })
-// }
+                }              
+                users.push(newUser);
+            }
+        }
+        saveUsers(users)
+        readData(users);
+        this.reset();
+    })
+}
 
 function deleteUser() {
     userTableBody.addEventListener("click", function(e) {
